@@ -20,12 +20,12 @@ Console.WriteLine($"Najwyższa ocena wynosi: {maxGrade}");
 int minGrade = arrayOfGrades.Min();
 Console.WriteLine($"Najniższa ocena wynosi: {minGrade}");
 
-int PositiveGrades = 0;
+int positiveGrades = 0;
 foreach (int grade in arrayOfGrades)
 {
     if (grade >= 3)
     {
-        PositiveGrades++;
+        positiveGrades++;
     }
 }
-Console.WriteLine($"Liczba ocen pozytywnych: {PositiveGrades}");
+Console.WriteLine($"Liczba ocen pozytywnych: {positiveGrades}");
