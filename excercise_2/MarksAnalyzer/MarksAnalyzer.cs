@@ -1,31 +1,31 @@
 ﻿Console.Write("Ile ocen chcesz wprowadzić? ");
 int numberOfGrades = Convert.ToInt32(Console.ReadLine());
 
-int[] arrayOfGrades = new int[numberOfGrades];
+List<int> grades = [];
 
 for (int i = 1; i <= numberOfGrades; i++)
 {
     Console.Write($"Podaj ocenę {i} (1-6): ");
     int grade = Convert.ToInt32(Console.ReadLine());
 
-    arrayOfGrades[i - 1] = grade;
+    grades.Add(grade);
 }
 
-double average = arrayOfGrades.Average();
+double average = grades.Average();
 Console.WriteLine($"Średnia ocen wynosi: {average:F2}");
 
-int maxGrade = arrayOfGrades.Max();
+int maxGrade = grades.Max();
 Console.WriteLine($"Najwyższa ocena wynosi: {maxGrade}");
 
-int minGrade = arrayOfGrades.Min();
+int minGrade = grades.Min();
 Console.WriteLine($"Najniższa ocena wynosi: {minGrade}");
 
 int positiveGrades = 0;
-foreach (int grade in arrayOfGrades)
-{
+grades.ForEach(grade => {
     if (grade >= 3)
     {
         positiveGrades++;
     }
-}
+});
+   
 Console.WriteLine($"Liczba ocen pozytywnych: {positiveGrades}");
