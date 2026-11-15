@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/excercise_1/">
+    <Project Path="excercise_1/Calculator/Calculator.csproj" />
+    <Project Path="excercise_1/GuessTheNumber/GuessTheNumber.csproj" />
+  </Folder>
+  <Folder Name="/excercise_2/">
+    <Project Path="excercise_2/EvenOddNumbers/EvenOddNumbers.csproj" />
+    <Project Path="excercise_2/MarksAnalyzer/MarksAnalyzer.csproj" />
+    <Project Path="excercise_2/MultiplicationTable/MultiplicationTable.csproj" />
+    <Project Path="excercise_2/PrimeNumbers/PrimeNumbers.csproj" />
+    <Project Path="excercise_2/StarsFigure/StarsFigure.csproj" />
+    <Project Path="excercise_2/SumNumbers/SumNumbers.csproj" />
+  </Folder>
+</Solution>
