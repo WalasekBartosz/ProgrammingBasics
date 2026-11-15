@@ -1,12 +1,12 @@
 ﻿int number = 0;
 
-Random rnd = new Random();
+Random rnd = new();
 int randomNumber = rnd.Next(1, 101);
 
 while (number != randomNumber)
 {
     Console.Write("Zgadnij liczbę (1-100): ");
-    int number = Convert.ToInt32(Console.ReadLine());
+    number = Convert.ToInt32(Console.ReadLine());
     if (number > randomNumber)
     {
         Console.WriteLine("Liczba za duża, spróbuj ponownie.");
