@@ -1,18 +1,18 @@
-﻿Console.Write("Podaj liczbę całkowitą dodatnią: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int reversedNumber = 0;
+﻿Console.Write("Podaj liczbę: ");
 
-if (number <= 0)
+if (!int.TryParse(Console.ReadLine(), out int number) || number <= 0)
 {
-    Console.WriteLine("Podana liczba nie jest liczbą dodatnią.");
+    Console.WriteLine("Podana wartość nie jest liczbą całkowitą dodatnią.");
+    return;
 }
-else
+
+Console.Write("Liczba odwrotna: ");
+
+while (number > 0)
 {
-    while (number > 0)
-    {
-        int digit = number % 10;
-        reversedNumber = reversedNumber * 10 + digit;
-        number /= 10;
-    }
-    Console.WriteLine($"Odwrócona liczba to: {reversedNumber}");
+    int digit = number % 10;
+    Console.Write(digit);
+    number /= 10;
 }
+
+Console.WriteLine();
