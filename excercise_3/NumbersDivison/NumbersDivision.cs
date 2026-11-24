@@ -1,5 +1,10 @@
-﻿Console.Write("Podaj liczbę całkowitą: ");
-int number = Convert.ToInt32(Console.ReadLine());
+﻿Console.Write("Podaj liczbę: ");
+
+if (!int.TryParse(Console.ReadLine(), out int number))
+{
+    Console.WriteLine("Podana wartość nie jest liczbą");
+    return;
+}
 
 List<int> dividedByThree = [];
 List<int> dividedByFive = [];
@@ -7,23 +12,25 @@ List<int> dividedByBoth = [];
 
 for (int i = 1; i <= number; i++)
 {
-    if (i % 3 == 0)
+    bool byThree = i % 3 == 0;
+    bool byFive = i % 5 == 0;
+
+    if (byThree)
     {
         dividedByThree.Add(i);
-        continue;
     }
-    else if (i % 5 == 0)
+
+    if (byFive)
     {
         dividedByFive.Add(i);
-        continue;
     }
-    else if (i % 3 == 0 && i % 5 == 0)
+
+    if (byThree && byFive)
     {
         dividedByBoth.Add(i);
-        continue;
     }
 }
 
-Console.WriteLine($" Podzielne przez 3: {string.Join(" ", dividedByThree)}");
-Console.WriteLine($" Podzielne przez 5: {string.Join(" ", dividedByFive)}");
-Console.WriteLine($" Podzielne przez 3 i 5: {string.Join(" ", dividedByBoth)}");
+Console.WriteLine($"Podzielne przez 3: {string.Join(" ", dividedByThree)}");
+Console.WriteLine($"Podzielne przez 5: {string.Join(" ", dividedByFive)}");
+Console.WriteLine($"Podzielne przez 3 i 5: {string.Join(" ", dividedByBoth)}");
