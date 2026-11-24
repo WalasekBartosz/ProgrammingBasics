@@ -3,125 +3,337 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kai's Café</title>
     <style>
+        :root {
+            --bg: #F6F2EC;
+            --surface: #FFFFFF;
+            --text: #2C221E;
+            --muted: #6E6259;
+            --accent: #C85519;
+            --accent-hover: #A4410E;
+            --highlight: #FFE8D6;
+            --border: #E8E1D9;
+            --shadow: 0 4px 16px rgba(44, 34, 30, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #F2F1EE;
-            font-family: system-ui;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 32px 20px 64px;
+        }
+
+        header,
+        main,
+        footer {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
         }
 
         h1 {
-            font-size: 80px;
-            text-align: center;
+            font-size: clamp(44px, 8vw, 76px);
+            letter-spacing: -2px;
+            margin: 0 0 12px;
+            line-height: 1.05;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 18px;
+            margin: 0 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            background-color: var(--accent);
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        nav a.secondary {
+            background-color: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        nav a:hover {
+            background-color: var(--accent-hover);
+            color: #FFFFFF;
+        }
+
+        section {
+            margin-bottom: 48px;
         }
 
         h2 {
-            font-size: 30px;
-            letter-spacing: -1px;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            margin: 0 0 16px;
         }
 
-        blockquote {
-            background-color: white;
+        .hero-img {
+            width: 100%;
+            max-height: 360px;
+            object-fit: cover;
             border-radius: 20px;
+            margin-top: 16px;
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        .specials-card {
+            background-color: var(--surface);
+            border-radius: 16px;
             padding: 20px 24px;
-            margin: 16px 0;
-            font-size: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .specials-card p:first-child {
+            margin-top: 0;
+        }
+
+        .specials-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        del {
+            color: var(--muted);
+        }
+
+        ins {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 700;
         }
 
         mark {
-            background-color: #FFE8D6;
+            background-color: var(--highlight);
+            color: var(--text);
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .menu-gallery {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .menu-gallery img {
+            flex: 1;
+            width: 0;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
+            background-color: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         th,
         td {
-            padding: 12px 16px;
+            padding: 14px 20px;
             text-align: left;
-            border-bottom: 1px solid #EEEEEE;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th:last-child,
+        td:last-child {
+            text-align: right;
+            font-weight: 600;
         }
 
         th {
-            color: gray;
-            font-weight: normal;
+            color: var(--muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: #FAF7F3;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #FCF9F5;
+        }
+
+        figure {
+            background-color: var(--surface);
+            border-left: 4px solid var(--accent);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin: 0 0 16px;
+            box-shadow: var(--shadow);
+        }
+
+        blockquote {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        figcaption {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        dl {
+            background-color: var(--surface);
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 24px;
+            margin: 0;
         }
 
         dt {
-            font-weight: bold;
+            font-weight: 700;
+        }
+
+        dd {
+            margin: 0;
+            color: var(--muted);
         }
 
         a {
-            color: #E8590C;
-            font-weight: bold;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
         }
     </style>
 </head>
 
-<body style="background-color:#F2F1EE; font-family:system-ui;">
-    <h1 style="font-size:80px; text-align:center;">Kai's Café</h1>
-    <p style="text-align:center; color:gray;">Fresh coffee, warm croissants, and the best pancakes in town.</p>
-    <h2>Our Story</h2>
-    <p style="text-align:center; color:gray;">Kai opened this little café in 2020 with one coffee machine and a big
-        dream.</p>
-    <p style="text-align:center; color:gray;">Today we bake everything fresh every morning, right here in our own
-        kitchen.</p>
-    <img src="https://www.w3schools.com/w3images/coffeeshop.jpg" alt="Our café with wooden tables" width="400">
-    <h2>Today's Specials</h2>
-    <p><strong>Pancake stack</strong> with maple syrup. Was <del>$9</del>, now only <ins>$7</ins>!</p>
-    <p>Try our <mark>new</mark> <em>cherry croissant</em>. It sells out fast.</p>
-    <h2 id="menu">Menu</h2>
-    <p style="text-align:center;"><a href="#menu">See the menu</a></p>
-    <p>
-        <img src="https://www.w3schools.com/w3images/croissant.jpg" alt="Croissant" height="120"
-            style="border-radius:16px;">
-        <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="Sandwich" height="120"
-            style="border-radius:16px;">
-        <img src="https://www.w3schools.com/w3images/popsicle.jpg" alt="Popsicle" height="120"
-            style="border-radius:16px;">
-    </p>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>Espresso</td>
-            <td>$3</td>
-        </tr>
-        <tr>
-            <td>Cappuccino</td>
-            <td>$4</td>
-        </tr>
-        <tr>
-            <td>Croissant</td>
-            <td>$3</td>
-        </tr>
-        <tr>
-            <td>Pancake stack</td>
-            <td>$7</td>
-        </tr>
-        <tr>
-            <td>Cherry croissant</td>
-            <td>$4</td>
-        </tr>
-    </table>
-    <h2>What Guests Say</h2>
-    <blockquote>The best pancakes I have ever had. I come back every Sunday!</blockquote>
-    <p>Sam, from <cite>The Food Blog</cite></p>
-    <blockquote>Cozy place, friendly people, and the coffee is perfect.</blockquote>
-    <p>Alex</p>
-    <h2 id="hours">Opening Hours</h2>
-    <dl>
-        <dt>Monday to Friday</dt>
-        <dd>7:00 to 17:00</dd>
-        <dt>Saturday and Sunday</dt>
-        <dd>8:00 to 15:00</dd>
-    </dl>
-    <p>Follow us on <a href="https://www.instagram.com" target="_blank">Instagram</a></p>
+<body>
+    <header>
+        <h1>Kai's Café</h1>
+        <p class="subtitle">Fresh coffee, warm croissants, and the best pancakes in town.</p>
+        <nav>
+            <a href="#menu">See the menu</a>
+            <a href="#hours" class="secondary">Opening Hours</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Story</h2>
+            <p>Kai opened this little café in 2020 with one coffee machine and a big dream. Today we bake everything
+                fresh every morning, right here in our own kitchen.</p>
+            <img class="hero-img" src="https://www.w3schools.com/w3images/coffeeshop.jpg"
+                alt="Our café with wooden tables">
+        </section>
+
+        <section>
+            <h2>Today's Specials</h2>
+            <div class="specials-card">
+                <p><strong>Pancake stack</strong> with maple syrup. Was <del>$9</del>, now only <ins>$7</ins>!</p>
+                <p>Try our <mark>new</mark> <em>cherry croissant</em>. It sells out fast.</p>
+            </div>
+        </section>
+
+        <section id="menu">
+            <h2>Menu</h2>
+            <div class="menu-gallery">
+                <img src="https://www.w3schools.com/w3images/croissant.jpg" alt="Croissant">
+                <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="Sandwich">
+                <img src="https://www.w3schools.com/w3images/popsicle.jpg" alt="Popsicle">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Espresso</td>
+                        <td>$3</td>
+                    </tr>
+                    <tr>
+                        <td>Cappuccino</td>
+                        <td>$4</td>
+                    </tr>
+                    <tr>
+                        <td>Croissant</td>
+                        <td>$3</td>
+                    </tr>
+                    <tr>
+                        <td>Pancake stack</td>
+                        <td>$7</td>
+                    </tr>
+                    <tr>
+                        <td>Cherry croissant</td>
+                        <td>$4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>What Guests Say</h2>
+            <figure>
+                <blockquote>The best pancakes I have ever had. I come back every Sunday!</blockquote>
+                <figcaption>— Sam, from <cite>The Food Blog</cite></figcaption>
+            </figure>
+            <figure>
+                <blockquote>Cozy place, friendly people, and the coffee is perfect.</blockquote>
+                <figcaption>— Alex</figcaption>
+            </figure>
+        </section>
+
+        <section id="hours">
+            <h2>Opening Hours</h2>
+            <dl>
+                <dt>Monday to Friday</dt>
+                <dd>7:00 to 17:00</dd>
+                <dt>Saturday and Sunday</dt>
+                <dd>8:00 to 15:00</dd>
+            </dl>
+        </section>
+    </main>
+
+    <footer>
+        <p>Follow us on <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    </footer>
 </body>
 
 </html>
