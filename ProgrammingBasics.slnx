@@ -13,6 +13,6 @@
   </Folder>
   <Folder Name="/excercise_3/">
     <Project Path="excercise_3/ReverseNumbers/ReverseNumbers.csproj" />
-    <Project Path="excercise_3/NumbersDivision/NumbersDivision.csproj" />
+    <Project Path="excercise_3/NumbersDivision/NumbersDivison.csproj" />
   </Folder>
 </Solution>
