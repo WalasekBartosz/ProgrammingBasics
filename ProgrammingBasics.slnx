@@ -16,5 +16,6 @@
     <Project Path="excercise_3/NumbersDivison/NumbersDivison.csproj" />
     <Project Path="excercise_3/DigitSum/DigitSum.csproj" />
     <Project Path="excercise_3/Calculator/Calculator.csproj" />
+    <Project Path="excercise_3/NumberSequence/NumberSequence.csproj" />
   </Folder>
 </Solution>
